@@ -1,0 +1,119 @@
+:root {
+  --color-bg: #121212;
+  --color-surface: #1c1c1c;
+  --color-text: #f2f2f2;
+  --color-text-muted: #a3a3a3;
+  --color-accent: #ff3d5a;
+  --color-battle: #ff3d5a;
+  --color-open-session: #3ddc97;
+  --color-workshop: #ffc233;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem;
+}
+
+.app-header p {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid #333;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.event-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  border: 1px solid #2a2a2a;
+}
+
+.event-card__type {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.6rem;
+}
+
+.event-card__type--battle {
+  background: rgba(255, 61, 90, 0.15);
+  color: var(--color-battle);
+}
+
+.event-card__type--open-session {
+  background: rgba(61, 220, 151, 0.15);
+  color: var(--color-open-session);
+}
+
+.event-card__type--workshop {
+  background: rgba(255, 194, 51, 0.15);
+  color: var(--color-workshop);
+}
+
+.event-card__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.event-card__meta {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.6rem;
+}
+
+.event-card__description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.empty-state {
+  color: var(--color-text-muted);
+}

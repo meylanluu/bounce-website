@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "Battle of the Year Qualifier",
+    "city": "Hamburg",
+    "type": "Battle",
+    "date": "2026-08-15",
+    "description": "Regionale Qualifikation für das Battle of the Year Deutschland."
+  },
+  {
+    "id": "2",
+    "title": "Open Session Hip Hop",
+    "city": "Berlin",
+    "type": "Open Session",
+    "date": "2026-08-05",
+    "description": "Freies Training für alle Levels, DJ vor Ort."
+  },
+  {
+    "id": "3",
+    "title": "House Dance Workshop mit Nina K.",
+    "city": "München",
+    "type": "Workshop",
+    "date": "2026-08-20",
+    "description": "Grundlagen und Footwork-Kombinationen im House Dance."
+  },
+  {
+    "id": "4",
+    "title": "Breaking Open Floor",
+    "city": "Hamburg",
+    "type": "Open Session",
+    "date": "2026-08-10",
+    "description": "Wöchentliche offene Trainingssession für Breaker."
+  },
+  {
+    "id": "5",
+    "title": "Popping & Locking Workshop",
+    "city": "Köln",
+    "type": "Workshop",
+    "date": "2026-08-22",
+    "description": "Zwei-Tages-Workshop für fortgeschrittene Tänzer."
+  }
+]
