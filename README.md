@@ -1,4 +1,4 @@
-# Dance Events
+# Bounce - Eventplatform
 
 Plattform für Tänzer:innen, um Battles, Open Sessions und Workshops zu finden, zu posten und sich dafür anzumelden.
 
