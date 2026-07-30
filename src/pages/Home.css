@@ -1,0 +1,29 @@
+/* Header */
+
+#header-container {
+display:flex; 
+flex-direction: row;
+/* -> wie: flex-flow: row nowrap; */
+
+width: 619px;
+height: 45px;
+}
+
+.home-header h1 {
+color: #61CAFF;
+font-size: 2.25rem;
+letter-spacing: -0.02em;
+margin: 0 0 0 0;
+align-self: self-end;
+}
+
+.home-header p {
+font-family: "Cascadia Mono", sans-serif; 
+color: var(--color-text-muted);
+font-size: 0.6rem;
+font-weight: 300; 
+
+margin: 0 0 0.25rem 1.5rem;
+align-self: flex-end;
+}
+

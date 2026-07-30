@@ -21,27 +21,19 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
+/* betrifft alles im .app Containter in App.jsx*/
 .app {
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 0rem 1.5rem 4rem;
+  width: 100%; 
+  max-width: 1900px;   /* 960px für etwas kompakter, 1200px*/
+  margin: 0 auto; /* margin: Außenabstand 
+                    0 -> kein Außenabstand oben/unten
+                    auto -> links/rechts verteilt Browser den übrig gebliebenen Platz automatisch
+                  => Ergebnis: horizontale Zentrierung*/
+  padding: 0 1.5rem 4rem;
 }
 
-.home-header {
-  margin-bottom: 2rem;
-}
 
-.home-header h1 {
-  font-size: 2.25rem;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.25rem;
-}
-
-.home-header p {
-  color: var(--color-text-muted);
-  margin: 0;
-}
-
+/* Event List */
 .filters {
   display: flex;
   gap: 0.75rem;
@@ -64,6 +56,7 @@ body {
   gap: 1rem;
 }
 
+/* Event Card */
 .event-card {
   background: var(--color-surface);
   border-radius: var(--radius);

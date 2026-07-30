@@ -1,12 +1,15 @@
 import EventList from "../components/EventList.jsx"
+import "./Home.css"
 
 export default function Home() { //function App() {...} + separates export default App) –> in einer Zeile
   return ( //<> Fragment: lets you group elements without a wrapper node.
            // React-Komponenten dürfen nur ein Wurzelelement zurückgeben -> Header und EventList als ein Element zurückgeben
     <> 
       <header className="home-header">
-          <h1>Bounce</h1>
-          <p>Battles, Open Sessions & Workshops in deiner Stadt</p>
+        <div id="header-container">
+          <h1>LET'S GO</h1>
+          <p>Date: Thursday, July 7</p>
+        </div>
       </header>
 
         <EventList />

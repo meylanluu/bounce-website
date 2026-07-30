@@ -11,8 +11,9 @@ function App() {
   return (
     <>
     <BrowserRouter>
+      <Navbar /> 
       <div className="app">
-        <Navbar /> 
+        
         <Routes>
           <Route path="/discover" element={<Discover />} />
           <Route path="/event" element={<EventDetailPage />} />
