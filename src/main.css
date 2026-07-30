@@ -1,4 +1,7 @@
-:root {
+/* wurde in main.jsx importiert -> Styles gelten global für die ganze App*/
+/* */
+
+:root { /* CSS-Selektor, der das oberste Element im gesamten Dokument meint*/
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -25,7 +28,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1024px) { /*Definiert CSS-Regeln, die nur unter bestimmten Bedingungen gelten -> hier Bildschirmgröße */
     font-size: 16px;
   }
 }
@@ -95,17 +98,3 @@ p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}
