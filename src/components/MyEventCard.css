@@ -1,0 +1,95 @@
+.my-event-card-link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.my-event-card {
+    display: flex; 
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    border: 1px solid #2a2a2a;
+    margin-bottom: 1rem;
+}
+
+/* month & date -> left*/
+.month-and-date {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    font-weight: 300;
+    justify-content: center;
+}
+
+.event-card-link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.mec-month {
+    font-family: "Cascadia Mono", sans-serif;
+    margin-bottom: 0.1rem;
+    align-self: center;
+}
+
+.mec-date {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    margin-bottom: 0;
+    color: #61CAFF
+}
+
+/* mex-info -> right*/
+.mec-info{
+    margin-left: 1rem;
+    align-content: center;
+}
+
+.mec-details{
+    display: flex;
+    flex-direction: row;
+    font-family: "Cascadia Mono", sans-serif;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 300;
+    align-items: center;
+}
+.mec-title {
+    margin: 0 0 8px 0; 
+    font-size: 1rem;
+}
+
+.mec-clock {
+    width: 10px;
+    height: 10px;
+    margin-bottom:10px; 
+    margin-right: 10px; 
+}
+
+.mec-dot {
+    margin-right: 10px; 
+    margin-left: 10px; 
+
+}
+
+.mec-time{
+    margin-bottom: 10px;
+    
+}
+
+.mec-location {
+    margin-bottom: 10px;
+    
+}
+
+.mec-status {
+    font-family: "Cascadia Mono", sans-serif;
+    color: #06DF72;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+

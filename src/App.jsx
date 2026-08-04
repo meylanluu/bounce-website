@@ -9,20 +9,18 @@ import Navbar from "./Navbar";
 
 function App() {
   return (
-    <>
     <BrowserRouter>
       <Navbar /> 
       <div className="app">
         
         <Routes>
           <Route path="/discover" element={<Discover />} />
-          <Route path="/event" element={<EventDetailPage />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/event/:slug" element={<EventDetailPage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </BrowserRouter>
-    </>
   );
 }
 

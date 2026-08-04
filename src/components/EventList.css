@@ -1,0 +1,35 @@
+/* Event List */
+.all-events-section{
+ padding: 1rem 1.5rem 3px 0px;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid #333;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.event-grid {
+  display: grid;
+  width: 700px;
+ 
+  grid-template-rows: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+p {
+margin-top: 0;
+}

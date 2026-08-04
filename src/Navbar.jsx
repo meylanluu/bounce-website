@@ -9,13 +9,13 @@ function Navbar() {  {/*  */}
             <div className="navbar-container">
                 
                  {/* Bounce Logo */}
-                <Link to= "/home" className="navbar-title">BOUNCE</Link>
+                <Link to= "/" className="navbar-title">BOUNCE</Link>
 
                  {/* Discover & Profile */}
                 <ul className="nav-tabs">
                     
                     <Link to="/discover" className="nav-links">Discover</Link>
-                    <Link to="/home" className="nav-links">Home</Link>
+                    <Link to="/" className="nav-links">Home</Link>
                     <Link to="/profile" className="nav-links">
                     <img src="src\assets\pfp.jpeg" alt="Profilbild" className="nav-profile" />
                 </Link>

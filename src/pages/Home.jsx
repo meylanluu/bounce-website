@@ -1,4 +1,5 @@
 import EventList from "../components/EventList.jsx"
+import MyEvents from "../components/MyEvents.jsx"
 import "./Home.css"
 
 export default function Home() { //function App() {...} + separates export default App) –> in einer Zeile
@@ -11,8 +12,13 @@ export default function Home() { //function App() {...} + separates export defau
           <p>Date: Thursday, July 7</p>
         </div>
       </header>
+      <main>
+        <EventList/>
+        <MyEvents />
+        
+      </main>
 
-        <EventList />
+      
     </>
   );
 }
