@@ -12,7 +12,7 @@ export default function Home() { //function App() {...} + separates export defau
           <p>Date: Thursday, July 7</p>
         </div>
       </header>
-      <main>
+      <main className="home-main">
         <EventList/>
         <MyEvents />
         

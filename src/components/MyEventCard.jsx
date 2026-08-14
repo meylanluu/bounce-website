@@ -1,5 +1,4 @@
 import { getRegisteredEventIds } from "../data/registrationService";
-import { useState } from "React"; 
 import clockIcon from "../assets/clock-icon.svg";
 
 import { createSlug } from "../data/eventsService"
@@ -21,7 +20,7 @@ export default function MyEventCard({ myEvent, status }) {
                 <div className="mec-info">
                     <h4 className="mec-title">{myEvent.title}</h4>
                     <div className="mec-details">
-                        <img className="mec-clock" src={clockIcon} alt="clock icon" className="mec-clock" />
+                        <img className="mec-clock" src={clockIcon} alt="clock icon" />
                         <p className="mec-time">{myEvent.time}</p>
                         <p className="mec-dot">•</p>
                         <p className="mec-location"> {myEvent.location}, {myEvent.city}</p>

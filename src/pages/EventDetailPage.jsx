@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getEventBySlug } from '../data/eventsService';
 import { getRegisteredEventIds, registerForEvent, unregisterFromEvent } from '../data/registrationService';
-
+import "./EventDetailPage.css"
 export default function EventDetailPage(){
 
     const params = useParams();
@@ -11,7 +11,10 @@ export default function EventDetailPage(){
     {/*Hooks dürfen in React nie in if/else-Blöcken stehen */}
     const [event,setEvent] = useState(null); 
     useEffect (() => {
-        getEventBySlug(slug).then(setEvent)
+        getEventBySlug(slug).then((event_data) => {
+        console.log("Fetched event:", event_data);
+        setEvent(event_data[0]); 
+         });  // wählt das erste Element im Fetch aus (event-Objekt)
     } ,[slug]);
 
     const [registeredEvents, setRegisteredEvents] = useState([]);
@@ -40,7 +43,11 @@ export default function EventDetailPage(){
         return (
         
             <main>
-                <h1>{event.title}</h1>
+                <div className="edp-header">
+                <h1>{event.title.toUpperCase()}</h1>
+                <p>{event.date}</p>
+                </div>
+                <p className='time-and-place'>📍{event.location}, {event.city}  |  {event.time} </p>
                 <button onClick={handleButton}>{buttonContent}</button>
             </main>
         );
