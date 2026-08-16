@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getEvents } from "../data/eventsService";
-import { getRegisteredEventIds, getRegisteredEvents } from "../data/registrationService";
+import { getRegisteredEventIds, getRegisteredEvents } from "../data/eventRegistrationService";
 import { getOrganizedEventIds, getOrganizedEvents } from "../data/organizationService";
 
 import MyEventCard from "./MyEventCard";  

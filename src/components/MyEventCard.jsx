@@ -1,4 +1,4 @@
-import { getRegisteredEventIds } from "../data/registrationService";
+import { getRegisteredEventIds } from "../data/eventRegistrationService";
 import clockIcon from "../assets/clock-icon.svg";
 
 import { createSlug } from "../data/eventsService"

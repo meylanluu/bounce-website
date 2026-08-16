@@ -22,6 +22,7 @@
 
 .navbar-title{
     color: #fff;
+    font-weight: 800;
     cursor: pointer;
     text-decoration: none;
     font-size: 1rem;
@@ -36,8 +37,8 @@
 }
 
 .navbar-title:hover {
-    color: rgb(149, 148, 225);
-    transition: all 0.1s ease-in;
+    color: #61CAFF;
+    transition: all 0.2s ease-in;
 }
 
 .nav-tabs {
@@ -48,19 +49,79 @@
     list-style: none;
 }
 
-.nav-profile {
- width: 40px; 
- height: 40px;
- border-radius: 50%;
- object-fit: cover;
- flex-shrink: 0; /* damit das pfp bei wenig Platz nicht ungewollt gequetscht*/
+/*Dropdown Menu ----------------------------------------*/ 
+
+.menu-trigger img{
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  flex-shrink: 0; /* damit das pfp bei wenig Platz nicht ungewollt gequetscht*/
 }
 
+.dropdown-menu{
+  position: absolute;
+  display: flex;
+  top: 60px;
+  right: 15px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px solid #2a2a2a;
+  padding: 0.7rem 1rem;
+  width: 130px;
+}
+
+.dropdown-menu ul{
+  padding: 0 4px
+}
+.dropdown-menu li{
+  list-style-type: none;
+  margin-bottom: 8px;
+}
+
+.dropdown-links{
+  font-size: 0.8rem;
+  font-weight: 580;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown-links:hover{
+  font-size: 0.8rem;
+  font-weight: 580;
+  color: #61CAFF;
+  transition: 0.05sec;
+}
+
+.dropdown-icons{
+  width: 10px; 
+  height: 10px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: var(--speed);
+}
+
+.logout-button{
+  font-size: 0.8rem;
+  font-weight: 580;
+  color: white;
+  background-color: #22355f;
+  border-radius: 12px;
+  padding: 5px 11px;
+  border: none; 
+  cursor: pointer;
+  
+}
+
+
 .nav-item {
-    height: 60px;
+  height: 60px;
 }
 
 .nav-links {
+  font-size: 0.8rem;
+  font-weight: 580;
   color: #fff;
   height: 60px;
   display: flex;
@@ -74,6 +135,23 @@
 .nav-links:hover {
   border-bottom: 3px solid #fff;
   transition: all 0.2s ease-out;
+}
+
+.login-button{
+  color: #000000;
+  background-color: #61beec;
+  border-radius: 20px;
+  border:none; 
+  font-size: 0.8rem;
+  font-weight: 500;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.2rem 1rem;
+  height: 100%;
+  cursor: pointer;
 }
 
 .fa-typo3 {

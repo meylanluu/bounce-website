@@ -1,0 +1,75 @@
+.register-page {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.register-content-container {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:20rem;
+    
+}
+
+.register-content-container p{
+   font-family: "Cascadia Mono", sans-serif;
+   font-size:  0.9rem;
+}
+    
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    margin-bottom: 3px; 
+    border-radius: 20px;
+    padding: 0.2rem 0.8rem;
+
+    font-family: "Cascadia Mono", sans-serif;
+}
+
+.register-header{
+    color: #61CAFF;
+}
+
+.enter-button{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+
+    color: #000000;
+    background-color: #61beec;
+    border-radius: 20px;
+    border:none; 
+
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    height: 55px;
+    width: 5rem; 
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.2rem 1rem;
+    height: 100%;
+    cursor: pointer;
+
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.register-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-link{
+    text-decoration: none;
+    font-family: "Cascadia Mono", sans-serif;
+    color: #61CAFF;
+}

@@ -6,12 +6,16 @@ flex-direction: row;
 /* -> wie: flex-flow: row nowrap; */
 
 width: 619px;
-height: 45px;
+height: 50px;
+margin-top: 2rem;
+margin-bottom: 1.5rem;
+
 }
 
 .home-header h1 {
 color: #61CAFF;
-font-size: 2.25rem;
+font-family: 'Archivo Black';
+font-size: 3rem;
 letter-spacing: -0.02em;
 margin: 0 0 0 0;
 align-self: self-end;
@@ -23,7 +27,7 @@ color: var(--color-text-muted);
 font-size: 0.6rem;
 font-weight: 300; 
 
-margin: 0 0 0.25rem 1.5rem;
+margin: 0 0 0.6rem 1.5rem;
 align-self: flex-end;
 }
 

@@ -27,6 +27,9 @@ export default function EventList() {
     return matchesCity && matchesType;
   });
 
+  console.log(cities)
+  console.log(types)
+
   return (
     <section className="all-events-section">
       <p>ALL EVENTS</p>

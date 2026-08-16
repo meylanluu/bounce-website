@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getEventBySlug } from '../data/eventsService';
-import { getRegisteredEventIds, registerForEvent, unregisterFromEvent } from '../data/registrationService';
+import { getRegisteredEventIds, registerForEvent, unregisterFromEvent } from '../data/eventRegistrationService';
 import "./EventDetailPage.css"
 export default function EventDetailPage(){
 
