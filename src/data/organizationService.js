@@ -1,20 +1,45 @@
 import { getEvents } from "./eventsService";
+import { supabase } from "./supabaseClient";
 
-const STORAGE_KEY = "organizedEventIds"; 
-
-export function getOrganizedEventIds() {
-    const storedIds = localStorage.getItem(STORAGE_KEY); 
-    return storedIds ? JSON.parse(storedIds) : [];
+export async function getOrganizedEventIds(userId) {
+    const { data, error } = await supabase
+        .from('organization')
+        .select('event_id')
+        .eq('organizer_id',userId);
+    if (error) throw error;
+    return data.map((row) => row.event_id)
 }
 
-export async function stopOrganizingEvent(eventId) {
-    const storedIds = await getOrganizedEventIds(); 
-    const updatedIds = storedIds.filter((id) => id !==eventId);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedIds));
+export async function organizeEvent(userId, eventData) {
+    const newEvent = await createEvent(userId, eventData);
+    const organizedEventIds = getOrganizedEventIds(userId);
+    
+    const { error } = await supabase
+        .from('organization')
+        .insert({organizer_id: userId, event_id: newEvent.event_id});
+
+    if (error) throw error; 
+
+    return newEvent; 
 }
 
-export async function getOrganizedEvents (){
+export async function deleteOrganizedEvent(userId, eventId) {
+    const organizedEventIds = await getOrganizedEventIds(userId); 
+    if(!organizedEventIds.includes(eventId)){
+        return;
+    }
+
+    const {error} = await supabase
+        .from('organization')
+        .delete()
+        .eq('organizer_id', userId)
+        .eq('event_id', eventId);
+    
+    if (error) throw error; 
+}
+
+export async function getOrganizedEvents (userId){
     const allEvents = await getEvents(); 
-    const organizedEventIds = await getOrganizedEventIds(); 
-    return allEvents.filter((event) => organizedEventIds.includes(event.id))
+    const organizedEventIds = await getOrganizedEventIds(userId); 
+    return allEvents.filter((event) => organizedEventIds.includes(event.event_id))
 }

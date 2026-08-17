@@ -1,0 +1,121 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.login-content-container {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35rem;
+    
+}
+
+.login-content-container p{
+   font-family: "Cascadia Mono", sans-serif;
+   font-size:  0.9rem;
+}
+
+.info-field{
+    margin-bottom: 1rem;
+}
+    
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    margin-bottom: 3px; 
+    border-radius: 20px;
+    padding: 0.2rem 0.8rem;
+    width: 100%;
+
+    font-family: "Cascadia Mono", sans-serif;
+}
+
+.setup-header{
+    color: var(--color-blue);
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+/* style button ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.style-btn_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0.6rem 0;
+}
+
+.style-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family:'Archivo Black', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: aqua;
+
+    padding: 0.2rem 0.9rem;
+    background-color: rgba(36, 244, 244, 0.273);
+    border-radius: var(--radius);
+    border: 1px solid;
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+}
+
+.style-btn:hover{
+    background-color: rgba(36, 244, 244, 0.542);
+    transition: all 0.2s ease-in;
+}
+
+.style-btn.selected{
+    background-color:  rgba(36, 244, 244, 0.542);
+    
+}
+
+.enter-button{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    color: #000000;
+    background-color: var(--color-blue);
+    border-radius: 20px;
+    border:none; 
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    height: 55px;
+    width: 5rem;
+    
+    text-decoration: none;
+    padding: 0.2rem 1rem;
+    height: 100%;
+    cursor: pointer;
+
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.register-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.register-link{
+    text-decoration: none;
+    font-family: "Cascadia Mono", sans-serif;
+    color: var(--color-blue);
+}

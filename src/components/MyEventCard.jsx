@@ -18,14 +18,14 @@ export default function MyEventCard({ myEvent, status }) {
                 </div>
 
                 <div className="mec-info">
-                    <h4 className="mec-title">{myEvent.title}</h4>
+                    <h4 className="mec-title">{myEvent.title.toUpperCase()}</h4>
                     <div className="mec-details">
                         <img className="mec-clock" src={clockIcon} alt="clock icon" />
-                        <p className="mec-time">{myEvent.time}</p>
+                        <p className="mec-time">{myEvent.time.slice(0,5)}</p>
                         <p className="mec-dot">•</p>
                         <p className="mec-location"> {myEvent.location}, {myEvent.city}</p>
                     </div>
-                    <p className="mec-status">
+                    <p className={`mec-status mec-status__${status.toLowerCase()}`}>
                     {status}
                     </p>
                 </div>

@@ -32,24 +32,27 @@ export default function EventList() {
 
   return (
     <section className="all-events-section">
-      <p>ALL EVENTS</p>
-      <div className="filters">
-        <select value={city} onChange={(e) => setCity(e.target.value)}>
-          <option value="">Alle Städte</option>
-          {cities.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
+      <div className="header-section">
+        
+        <p>ALL EVENTS</p>
+        <div className="filters">
+          <select value={city} onChange={(e) => setCity(e.target.value)}>
+            <option value="">Alle Städte</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
 
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="">Alle Eventtypen</option>
-          {types.map((t) => (
-            <option key={t} value={t}>{t}</option>
-          ))}
-        </select>
+          <select value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="">Alle Eventtypen</option>
+            {types.map((t) => (
+              <option key={t} value={t}>{t}</option>
+            ))}
+          </select>
+        </div>
+        
       </div>
 
-      {/*PRÜFEN: ist das nötig, wenn sowieso nur Städte angezeigt werden, die auch in den Cards enthalten sind?*/}
       {filteredEvents.length === 0 ? 
       ( <p className="empty-state">Keine Events gefunden. Versuch andere Filter.</p>) 
       : 

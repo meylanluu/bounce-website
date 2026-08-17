@@ -1,62 +1,49 @@
-// registrationService.js
 import { getEvents } from "./eventsService";
+import { supabase } from "./supabaseClient";
 
-const STORAGE_KEY = "registeredEventIds"; 
-{/* localStorage -> '["1","3","5"]'  String, der die JSON-Syntax eines Arrays enthält */}
-
-export async function getRegisteredEventIds() { {/* return -> Array */}
-    const storedIds =  localStorage.getItem(STORAGE_KEY);
-    return storedIds ? JSON.parse(storedIds) : [];
+export async function getRegisteredEventIds(userId) { {/* return -> Array */}
+    const { data,error } = await supabase.from('registration').select('event_id').eq('user_id', userId);
+    //data = [{ event_id: "123" }, { event_id: "124" }]
+    if (error) throw error
+    return data.map((row) => row.event_id)  
+    // row = ein {event_id: "123"}- Objekt
+    // result = Array von event IDs -> [ a123, b123]
 }
 
-export async function registerForEvent(eventId) {
-    const storedIds = await getRegisteredEventIds(); // anfangs: []
-    if (!storedIds.includes(eventId)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...storedIds, eventId])); // torage wird gefüllt: localStorage["registeredEventIds"] = '["3"]'
-  }
-}
-
-export async function unregisterFromEvent(eventId) {
-    const storedIds = await getRegisteredEventIds(); // anfangs: []
-    const updatedIds = storedIds.filter((id) => id !==eventId);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedIds)); // torage wird gefüllt: localStorage["registeredEventIds"] = '["3"]'
-}
-
-export async function getRegisteredEvents (){
-    const allEvents = await getEvents();
-    const registeredEventIds = await getRegisteredEventIds(); 
-    return allEvents.filter((event) => registeredEventIds.includes(event.id)) 
+export async function registerForEvent(userId, eventId) {
+    const registeredEventIds = await getRegisteredEventIds(userId);
+    if (registeredEventIds.includes(eventId)) {
+        return;
     }
-
-
-
-
-{/*
+    const { error } = await supabase
+        .from('registration')
+        .insert({ user_id: userId, event_id: eventId});
     
-    export async function getRegisteredEventIds() { 
-    const stored = localStorage.getItem(STORAGE_KEY);
-   return stored ? JSON.parse(stored) : [];
- } // bleibt bestehen
-
-export async function getRegisteredEvents() {
-  const [ids, allEvents] = await Promise.all([getRegisteredEventIds(), getEvents()]);
-  return allEvents.filter((event) => ids.includes(event.id));
+    if (error) throw error; //Service-Funktionen sollen Fehler nur nach oben weitergeben, müssen sich nicht darum kümmern, wie sie dem Nutzer angezeigt werden  
 }
 
+export async function unregisterFromEvent(userId, eventId) {
+    const registeredEventIds = await getRegisteredEventIds(userId); 
 
-
-export function registerForEvent(eventId){
-    const ids = getRegisteredEventIds(); 
-    if(!ids.includes(eventId)){
-        localStorage.setItem(STORAGE_KEY, JSON.stringify([...ids,eventId]));
+    if (!registeredEventIds.includes(eventId)){
+        return
     }
+
+    const { error } = await supabase
+        .from('registration')
+        .delete()
+        .eq('user_id', userId)
+        .eq('event_id', eventId);
+    
+    if (error) throw error;
 }
 
-export function unregisterFromEvent(eventId){
-    const ids = getRegisteredEventIds(); 
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(ids.filter((id) => id !== eventId))
-    );
-}
-    */}
+export async function getRegisteredEvents (userId){
+    const allEvents = await getEvents();
+    const registeredEventIds = await getRegisteredEventIds(userId); 
+    return allEvents.filter((event) => registeredEventIds.includes(event.event_id)) 
+    }
+
+
+
+

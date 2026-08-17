@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; //React Router: provides routing capabilities for React applications
-
+import { getProfileById } from './data/profileService';
 import { useAuth } from './data/authContext'
 import { signOut } from './data/authService'
 
@@ -12,12 +12,25 @@ function Navbar() {  {/*  */}
 
     const { user } = useAuth();
     const navigate = useNavigate(); 
+    
+    const [profile, setProfile] = useState();
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        if (!user) return; 
+
+        getProfileById(user.id)
+        .then((data) => setProfile(data))
+        .catch((error) => {
+            console.log("Profile couldn't be loaded: ", error);
+            setError("Profile couldn't be loaded.")
+        })
+    },[user])
 
     async function handleLogout(){
         await signOut()
     }
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
     
     return(
     
@@ -38,7 +51,7 @@ function Navbar() {  {/*  */}
                        <div className='menu-container'>
                             <div className='menu-trigger'>
                                 <img
-                                    src='src\assets\pfp.jpeg'
+                                    src={profile?.profile_pic} //*Optional Chaining: gibt undefined zurück wenn profile noch nicht geladen ist, anstatt Absturz 
                                     alt='Profilbild'
                                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                                 />

@@ -1,33 +1,32 @@
 import { useAuth } from '../data/authContext'
-import { supabase } from '../data/supabaseClient'
+import { getRegisteredEventIds } from '../data/eventRegistrationService';
+import { getProfileById } from '../data/profileService';
 import { useState, useEffect } from 'react'
 
 export default function Profile(){
 
     const { user } = useAuth();
-    const [displayName, setDisplayName] = useState('');
+    const [profile, setProfile] = useState('');
+    const [error, setError] = useState(null);
+    
 
-    useEffect(() => { {/* supabase.(...).single() gibt am Ende so eine Obj. zurück:  { data: { display_name: "Max" }, error: null } 
-                        -> kann dann destrukturiert werden*/} 
-                        {/* ?. Optional Chaining -> bei data = null -> setDisplayName(undefined)*/} 
-        if (!user) return
-        supabase.from('profiles') 
-        .select('display_name')
-        .eq('user_id', user.id)
-        .single()
-        .then(({ data, error }) => {
-            if (error) {
-                console.error('Fehler beim Laden des Profils:', error.message)
-                return
-            }
-            setDisplayName(data.display_name)
-        })
+    useEffect(() => {
+        if (!user) return; 
+        
+        getProfileById(user.id)
+        .then((data) => setProfile(data))
+        .catch((error) => {
+            console.log("Error loading profile: ", error);
+            setError("Profile couldn't be loaded.")}
+        )
     }, [user])
 
     return (
         <>
         <main>
-            <h1>{displayName}</h1>
+            <h1>{profile && <h2>{profile.display_name}</h2>} </h1> {/*Verhindert, dass profile.display_name gelesen wird, bevor profile überhaupt geladen ist*/}
+            <div></div>
+            
         </main>
         </>
     );

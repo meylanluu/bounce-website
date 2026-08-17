@@ -1,3 +1,14 @@
 .my-events-section{
     padding: 1rem 0 3px 0px;
 }
+
+.myevents-header{
+    font-family: "Cascadia Mono", sans-serif;
+    color: var(--color-text-muted);
+    margin-top: 0.6rem;
+}
+
+.my-events-column{
+    margin-top: 1.83rem; 
+}
+

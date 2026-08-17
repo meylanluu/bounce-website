@@ -8,16 +8,15 @@ flex-direction: row;
 width: 619px;
 height: 50px;
 margin-top: 2rem;
-margin-bottom: 1.5rem;
-
+margin-bottom: 1rem;
 }
 
 .home-header h1 {
-color: #61CAFF;
+color: var(--color-blue);
 font-family: 'Archivo Black';
 font-size: 3rem;
 letter-spacing: -0.02em;
-margin: 0 0 0 0;
+margin: 0 0  0;
 align-self: self-end;
 }
 

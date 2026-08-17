@@ -1,6 +1,6 @@
 .my-event-card-link{
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 .my-event-card {
@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: row;
     font-family: "Cascadia Mono", sans-serif;
-    color: var(--color-text-muted);
+
     font-size: 0.8rem;
     font-weight: 300;
     align-items: center;
@@ -62,6 +62,7 @@
 }
 
 .mec-clock {
+    color: var(--color-text-muted);
     width: 10px;
     height: 10px;
     margin-bottom:10px; 
@@ -69,27 +70,38 @@
 }
 
 .mec-dot {
+    color: var(--color-text-muted);
     margin-right: 10px; 
     margin-left: 10px; 
 
 }
 
 .mec-time{
+    color: var(--color-text-muted);
     margin-bottom: 10px;
-    
 }
 
 .mec-location {
+    color: var(--color-text-muted);
     margin-bottom: 10px;
     
 }
 
 .mec-status {
     font-family: "Cascadia Mono", sans-serif;
-    color: #06DF72;
     font-weight: 600;
     font-size: 0.8rem;
     margin-bottom: 0;
 }
+
+.mec-status__registered{
+    color: #06DF72;
+}
+
+.mec-status__organizing{
+    color: #FCD64D
+;
+}
+
 
 
