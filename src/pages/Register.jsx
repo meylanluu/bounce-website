@@ -17,7 +17,7 @@ export default function Register(){
          if (comparePasswords(password, confirmPassword)){
             try{
                 await signUp(email, password);
-                navigate('/complete-profile');
+                navigate('/edit-profile');
             } catch (error) {
                  if (error.code === 'user_already_exists') {
                     setError('This e-mail already has an account.');

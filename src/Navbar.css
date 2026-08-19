@@ -20,13 +20,18 @@
   padding: 0 15px;
 }
 
+#navbar-link{
+  text-decoration: none;
+}
+
 .navbar-title{
     color: #fff;
     font-weight: 800;
     cursor: pointer;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     flex: 1; 
+    width: 3rem;
     /* Kurzform für:
       flex-grow: 1; 
       -> erlaubt Element, zu wachsen und den verfügbaren, übrigen Platz im Flex-Container einzunehmen
@@ -47,6 +52,11 @@
     align-items: center;
     gap: 10px;
     list-style: none;
+}
+
+#navbar_logged-in{
+  display: flex;
+  gap: 1rem;
 }
 
 /*Dropdown Menu ----------------------------------------*/ 
@@ -75,9 +85,14 @@
 .dropdown-menu ul{
   padding: 0 4px
 }
+
+.dropdown-menu-items{
+  margin-bottom: 0.7rem;
+}
+
 .dropdown-menu li{
   list-style-type: none;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .dropdown-links{

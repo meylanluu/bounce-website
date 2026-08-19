@@ -45,6 +45,7 @@
 .mec-info{
     margin-left: 1rem;
     align-content: center;
+    width: 100%;
 }
 
 .mec-details{
@@ -99,9 +100,34 @@
 }
 
 .mec-status__organizing{
-    color: #FCD64D
-;
+    color: #FCD64D;
 }
 
+.mec_status-and-edit{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+/*Edit Button*/
+#mec-edit-button{
+    background-color: #fcd64d45;
+    border: 1px solid;
+    border-radius: 1rem;
+    border-color: #FCD64D;
+    color: white;
+    font-weight: 600;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem; 
+    margin-left: 0.7rem;
+}
+
+#mec-edit-button:hover{
+    background-color: #fcd64d9b;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
 
 

@@ -8,7 +8,6 @@
   background-color: var(--color-surface);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   max-width: 420px;
 }
 
@@ -16,7 +15,6 @@
   position: relative; /* Referenzpunkt für den Badge*/
   height: 14rem; 
   width: 100%;
-  /* aspect-ratio: 4/3;  Legt Seitenverhältnis fest */
   overflow: hidden; 
 }
 
@@ -25,7 +23,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
+  display: block; /* sorgt dafür, dass <img> sich wie ein Block‑Element verhält statt wie Inline‑Element -> Inline Images haben kleine Lücken unter dem Bild */
 }
 
 .event-card__content {

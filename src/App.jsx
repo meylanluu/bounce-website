@@ -9,7 +9,8 @@ import Profile from "./pages/Profile";
 import Navbar from "./Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import CompleteProfile from "./pages/CompleteProfile";
+import EditProfile from "./pages/EditProfile";
+import EditEvent from "./pages/EditEvent"
 
 function App() {
   return (
@@ -20,13 +21,15 @@ function App() {
         <div className="app">
           
           <Routes>
-            <Route path="/discover" element={<Discover />} />
+            <Route path="/" element={<Discover />} />
             <Route path="/event/:slug" element={<EventDetailPage />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/complete-profile" element={<CompleteProfile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/create-event" element={<EditEvent />} />
+            <Route path="/edit-event/:eventId" element={<EditEvent />} /> {/* gleiche Komponente, unterschiedliche Links */}
           </Routes>
 
         </div>

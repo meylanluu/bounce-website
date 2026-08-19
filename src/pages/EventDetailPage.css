@@ -8,6 +8,29 @@ main{
     flex-direction: column;
 }
 
+h2{
+    color: var(--color-blue);
+    font-family: 'Archivo-Black',Inter;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.text-output {
+  white-space: pre-wrap; /* Text wird angezeigt wie in textarea geschrieben */
+}
+
+.text-output.paragraph#additional-info{
+    margin-bottom: 1rem;
+    width: 100%;
+    font-weight: 600;
+    text-align: justify;
+}
+
+
+
 /* title-container-----------------------------------------------------------------------*/
 
 .title-container{
@@ -90,14 +113,14 @@ align-self: self-end;
     display: block;
 }
 
-/* event-tag-container --------------------------------------------------------------------- */
-.event-tag-container{
+/* event-tag_container --------------------------------------------------------------------- */
+.event-tag_container{
     display: flex;
     flex-direction: row;
-    margin: 0.6rem 0;
+    margin: 0.6rem 0 2.6rem;
 }
 
-.event-tag{
+.category-tag{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,22 +137,44 @@ align-self: self-end;
     margin-right: 0.8rem;
 }
 
-/* entry-and-start----------------------------------------------------------------------------*/
-.entry-and-start_container{
+/* INFO CONTAINER ------------------------------------------------------------*/
+.info_container{
     display: flex;
+    gap: 3rem;
+    margin-top: 1.7rem;
+}
+.info_container p{
+    margin-top: 0.3rem;
+}
+
+.info_container#rules{
+    width:100%;
+}
+
+/* descriptiont----------------------------------------------------------------------------*/
+
+.info_long-container#description{
     flex-direction: column;
-    margin-bottom: 1rem;
 }
-.eas-container{
+#event-description{
+    margin-bottom: 0.8rem;
+}
+
+/* OPTIONAL INFO CONTAINER ------------------------------------------------------------*/
+.optional-info_container{
     display: flex;
-    flex-direction: row;
-    height: 1.1rem;
-    margin-bottom: 0.3rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
-.bold{
-    font-weight: 700;
-    margin: 0 0.8rem 0 0;
-    width: 4rem;
+.info-item{
+    line-height: 0.3rem;
 }
 
+#organizer_username{
+    font-family: 'Cascadia Mono';
+    color: var(--color-text-muted);
+    align-self: flex-end;
+    margin-top: 2rem;
+}

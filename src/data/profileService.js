@@ -1,6 +1,6 @@
 import { supabase } from "./supabaseClient";
 
-export async function updateProfile(userId, profileData){
+export async function updateProfile(userId, profileData){ //könnte man wie updateEvent umschreiben
     
     const { error } = await supabase
         .from('profiles')

@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { updateProfile, getProfileById, uploadProfilePicture } from '../data/profileService'
 import { useAuth } from '../data/authContext'
 
-import './CompleteProfile.css'
+import './EditProfile.css'
 
 export default function CompleteProfile(){
 
@@ -13,6 +13,7 @@ export default function CompleteProfile(){
     const [displayName, setDisplayName] = useState('')
     const [profilePicUrl, setProfilePicUrl] = useState('')
     const [styles, setStyles] = useState('')
+    const [city, setCity] = useState('')
     //für style selection 
     const [selectedStyles, setSelectedStyles] = useState([]);
     //für profile pic
@@ -25,7 +26,8 @@ export default function CompleteProfile(){
 
     useEffect(() =>{
         if (!user) return; 
-
+        
+        // bereits gespeicherte Daten holen 
         getProfileById(user.id)
         .then((profile) => {
             setUsername(profile.username);
@@ -34,6 +36,7 @@ export default function CompleteProfile(){
             setSelectedStyles(Array.isArray(profile.styles) ? profile.styles : []);
             // ist profile.styles sicher ein Array? -> für .includes()
             // wenn profile.styles = null -> []
+            setCity(profile.city);
             })
         .catch((error) => { //try statt try-catch, weil useEffect nicht async sein darf
             //console.log("Error loading profile:", error);
@@ -69,6 +72,7 @@ export default function CompleteProfile(){
                 display_name: displayName,
                 profile_pic: newProfilePicUrl,
                 styles: selectedStyles,
+                city: city,
             };
             await updateProfile(user.id, profileData);
             navigate('/profile');
@@ -100,6 +104,15 @@ export default function CompleteProfile(){
                             type = "text" 
                             placeholder = "What's your name?"
                             onChange = {(e) => setDisplayName(e.target.value)}
+                            />
+                        </div>
+
+                        <div className='info-field'>
+                            <p>Your City</p>
+                            <input 
+                            type = "text" 
+                            placeholder = "Where is your base?"
+                            onChange = {(e) => setCity(e.target.value)}
                             />
                         </div>
 

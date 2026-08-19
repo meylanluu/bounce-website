@@ -11,13 +11,13 @@ margin-top: 2rem;
 margin-bottom: 1rem;
 }
 
-.home-header h1 {
-color: var(--color-blue);
-font-family: 'Archivo Black';
-font-size: 3rem;
-letter-spacing: -0.02em;
-margin: 0 0  0;
-align-self: self-end;
+.home-header h1{
+    color: var(--color-blue);
+    font-family: 'Archivo Black';
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    margin: 0 0  0;
+    align-self: self-end;
 }
 
 .home-header p {
@@ -33,6 +33,17 @@ align-self: flex-end;
 .home-main {
 display: flex; 
 flex-direction: row;
+}
+
+#my-events_header{
+    margin-top: 1.6rem;
+    margin-bottom: 0.9rem;
+    font-family: 'Cascadia Mono', sans-serif;
+    color: var(--color-text-muted);
+}
+
+.event-list_container{
+    width: 700px;
 }
 
 

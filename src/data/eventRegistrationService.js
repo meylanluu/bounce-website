@@ -34,6 +34,8 @@ export async function unregisterFromEvent(userId, eventId) {
         .delete()
         .eq('user_id', userId)
         .eq('event_id', eventId);
+
+        console.log("User was unregisterd from: ", event_id)
     
     if (error) throw error;
 }

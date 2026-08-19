@@ -1,13 +1,14 @@
-import { getRegisteredEventIds } from "../data/eventRegistrationService";
 import clockIcon from "../assets/clock-icon.svg";
 
 import { createSlug } from "../data/eventsService"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import "./MyEventCard.css";
 
 
 export default function MyEventCard({ myEvent, status }) {
+
+    const navigate = useNavigate(); 
 
     return (
         <Link to={`/event/${createSlug(myEvent.title)}`} className="my-event-card-link">
@@ -25,9 +26,18 @@ export default function MyEventCard({ myEvent, status }) {
                         <p className="mec-dot">•</p>
                         <p className="mec-location"> {myEvent.location}, {myEvent.city}</p>
                     </div>
-                    <p className={`mec-status mec-status__${status.toLowerCase()}`}>
-                    {status}
-                    </p>
+                    <div className="mec_status-and-edit">
+                        <p className={`mec-status mec-status__${status.toLowerCase()}`}>{status}</p>
+                        {/* EDIT BUTTON ####################
+                        {status === "ORGANIZING" && 
+                            <button id="mec-edit-button" onClick={(e) => {
+                                e.preventDefault();   // Link-Default verhindern
+                                e.stopPropagation();  
+                                navigate(`/edit-event/${myEvent.event_id}`)
+                            }}>Edit</button>
+                        }
+                        */}
+                    </div>
                 </div>
 
             </article>

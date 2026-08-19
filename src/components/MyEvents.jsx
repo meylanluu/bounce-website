@@ -5,10 +5,11 @@ import { getEvents } from "../data/eventsService";
 import { getRegisteredEventIds, getRegisteredEvents } from "../data/eventRegistrationService";
 import { getOrganizedEventIds, getOrganizedEvents } from "../data/organizationService";
 
-import MyEventCard from "./MyEventCard";  
 import "./MyEvents.css";
 
-export default function MyEvents() {
+export default function MyEvents({CardComponent}) {
+    console.log("MyEvents loaded");
+
 
     const { user } = useAuth()
     const [allMyEvents, setAllMyEvents] = useState([]);
@@ -25,6 +26,9 @@ export default function MyEvents() {
             getRegisteredEventIds(user.id), 
             getOrganizedEventIds(user.id)
         ]);
+        console.log("registeredEvents", registeredEvents);
+        console.log("organizedEvents", organizedEvents);
+
         setAllMyEvents([...registeredEvents, ...organizedEvents]);
         setRegisteredEventIds(registeredIds);
         setOrganizedEventIds(organizedIds);
@@ -40,11 +44,9 @@ export default function MyEvents() {
 
      return (
         <section className="my-events-section">
-            <p className="myevents-header">MY EVENTS</p>
-            
             <div className="my-events-column"> {/* myEvents = registeredEvents + organizedEvents */}
                 {allMyEvents.map((event) => 
-                (<MyEventCard key={event.event_id} myEvent={event} status={decideStatus(event)} />)
+                (<CardComponent key={event.event_id} myEvent={event} status={decideStatus(event)} />)
                 )}      
             </div> 
         </section>

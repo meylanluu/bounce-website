@@ -12,7 +12,7 @@ export default function EventList() {
 
   useEffect(() => {getEvents().then(setEvents);},  []);
   {/*useEffect: erlaubt das asynchrone Laden von Daten?*/}
-  {/*events-Array ist nun mit den vers. Events gefüllt/}
+  {/*events-Array ist nun mit den vers. Events gefüllt*/}
 
   {/* Städte und Eventtypes extrahieren und in eigenes Array packen*/}
   const cities = [...new Set(events.map((e) => e.city))]; {/* [...new Set] = Spread-Operator -> wandelt Set wieder in normales Array um*/}

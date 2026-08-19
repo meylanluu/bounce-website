@@ -1,4 +1,5 @@
 import EventList from "../components/EventList.jsx"
+import MyEventCard from "../components/MyEventCard.jsx";
 import MyEvents from "../components/MyEvents.jsx"
 import "./Home.css"
 
@@ -17,8 +18,13 @@ export default function Home() { //function App() {...} + separates export defau
         </div>
       </header>
       <main className="home-main">
-        <EventList/>
-        <MyEvents />
+        <div className="event-list_container">
+          <EventList/>
+        </div>
+        <div className="my-events_container">
+          <p id="my-events_header">MY EVENTS</p>
+          <MyEvents CardComponent={MyEventCard}/>
+        </div>
         
       </main>
 

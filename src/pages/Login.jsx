@@ -15,7 +15,7 @@ export default function Login(){
         setError (null); 
         try{
             await signIn(email, password);
-            navigate('/');
+            navigate('/home');
         } catch (error) {
             setError("Login unsuccessful. Try again.")
         }

@@ -30,5 +30,5 @@ body {
                     0 -> kein Außenabstand oben/unten
                     auto -> links/rechts verteilt Browser den übrig gebliebenen Platz automatisch
                   => Ergebnis: horizontale Zentrierung*/
-  padding: 0 1.5rem 4rem;
+  padding: 0 1.5rem 2rem;
 }

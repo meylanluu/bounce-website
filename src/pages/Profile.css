@@ -1,0 +1,123 @@
+/* Profile Header ------------------------------------------------------------*/
+
+.profile-header_container{
+    display: flex;
+}
+
+/*Image -------------------*/
+.img-wrapper{
+    width: 8rem;
+    height: 8rem; 
+    border-radius: 5rem;
+    overflow: hidden; 
+}
+
+.img-wrapper img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+    object-position: center;
+    display: block; 
+}
+
+/*Profile Info -------------------*/
+#profile{
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.profile-info_container{
+    margin-left: 1.5rem;
+    padding: 1rem;
+}
+
+.name-and-styles_container{
+    display: flex;
+    margin-bottom: 0.6rem;
+}
+
+.name{
+    font-size: 2rem;
+    font-weight: 800;
+    margin-right: 1rem;
+}
+
+.style-tag_container{
+    display: flex;
+    height: 38.5px;  
+    align-items: center;
+    justify-content: center;
+
+}
+
+.style-tag{
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    padding: 0.2rem 0.9rem;
+    background-color: rgba(97, 202, 255, 0.45);
+    border-radius: var(--radius);
+    margin-right: 0.2rem;
+}
+
+.username-and-city_container{
+    display: flex;
+    align-items: center;
+    
+}
+
+.username-and-city_container p{
+    /*font-family: 'Cascadia Mono', sans-serif;*/
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+#edit-profile_button{
+    display: flex;
+    align-items: center;
+    background-color: rgba(97, 202, 255, 0.181);
+    border: 1px solid;
+    border-radius: 0.9rem;
+    border-color: rgba(97, 202, 255, 0.45);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600; 
+    margin-left: 1rem;
+    padding:0.4rem;
+    height:1.3rem; 
+}
+
+#edit-profile_button:hover{
+    background-color: rgba(97, 202, 255, 0.45);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+/* Main Content -----------------------------------------------------------------*/
+.main-content_container{
+    display: flex;
+    margin-top: 1rem; 
+}
+
+.main-content_header{
+    color: var(--color-text-muted);
+}
+
+.main-content_container p{
+    font-family: 'Cascadia Mono', sans-serif;
+}
+
+/* Event Cards ----------------------*/
+/* Liked Events -----------------------------------------------------------------*/
+.liked-events_container{
+    margin-left: 2rem;
+}
+/* Past Events -----------------------------------------------------------------*/
+
+

@@ -1,5 +1,6 @@
 import { getEvents } from "./eventsService";
 import { supabase } from "./supabaseClient";
+import { createEvent } from "./eventsService";
 
 export async function getOrganizedEventIds(userId) {
     const { data, error } = await supabase

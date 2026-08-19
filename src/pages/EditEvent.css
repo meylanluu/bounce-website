@@ -1,0 +1,181 @@
+.edit-event_container{
+    display: flex;
+}
+
+.edit-event_content{
+    width: 100%;
+}
+
+.edit-event_content h1{
+    color: var(--color-blue);
+    font-family: 'Archivo Black', Inter;
+    font-size: 2.5rem;
+    line-height: 2rem; 
+}
+
+.edit-event_content p{
+    font-family: 'Cascadia Mono', sans-serif;
+}
+
+/* INPUT FIELDS -------------------------------------------------------------------------------------------------------------------*/
+
+.info-field{
+    margin-bottom: 1rem;
+}
+
+.info-field h2{
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 6rem;
+  resize: vertical; /* User darf hochziehen */
+  padding: .7rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  border-color: var(--color-text-muted);
+  background-color: transparent;
+
+  color: white; 
+}
+
+.textarea::placeholder {
+    color: var(--color-text-muted);
+
+}
+.textarea-smaller {
+  width: 100%;
+  min-height: 3rem;
+  resize: vertical; /* User darf hochziehen */
+  padding: .7rem;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+}
+
+/* Input/Placeholder-Styling */
+
+input{
+    background-color: transparent;
+    color: white;
+
+    border-radius: 1rem;
+    border: 1px solid;
+    border-color: rgb(53, 53, 53);
+}
+
+/*Title #########################*/
+#title_input{
+    color: var(--color-blue);
+    font-family: 'Archivo Black', Inter;
+    font-size: 2.5rem;
+    line-height: 2rem; 
+    text-transform: uppercase;
+
+    min-width: 50rem;
+}
+
+#title_input::placeholder {
+    color: var(--color-blue);
+    font-family: 'Archivo Black', Inter;
+    font-size: 2.5rem;
+    line-height: 2rem; 
+    text-transform: uppercase;
+}
+
+/*Date & Time + City & Location  #########################*/
+#initial-info_container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.medium_input{
+    width: 10rem; 
+}
+.long_input{
+    width: 26rem; 
+}
+
+
+/*city*/
+#city_input {
+    width: 10rem;  
+}
+
+.info-field.city{
+    margin-left: 7rem;
+}
+
+.type-and-image_container{
+    display: flex;
+    gap: 7.6rem; 
+}
+
+#image-input{
+    border-color: transparent;
+}
+
+/* description */
+
+
+#description_input{
+    width: 100%;
+    min-height: 6rem;
+    resize: vertical; /* User darf hochziehen */
+    padding: .7rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    background-color: transparent;
+}
+/*image*/
+#image_input{
+    border: none;
+}
+
+
+
+
+
+/* EVENT TYPE SELECTOR ------------------------------------------------------*/
+.event-type-selector_container{
+    display: flex;
+}
+
+.event-type-selector_container input[type="radio"] {
+  display: none;
+}
+
+.event-type-selector_container label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family:'Archivo Black', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: aqua;
+
+    padding: 0.2rem 0.9rem;
+    background-color: rgba(36, 244, 244, 0.273);
+    border-radius: var(--radius);
+    border: 1px solid;
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+}
+
+.event-type-selector_container label:hover{
+    background-color: rgba(36, 244, 244, 0.542);
+    transition: all 0.2s ease-in;
+}
+
+.event-type-selector_container label.selected {
+   background-color:  rgba(36, 244, 244, 0.542);
+}
+
+/* IMAGE SELECTOR -------------------------------------------------------------*/

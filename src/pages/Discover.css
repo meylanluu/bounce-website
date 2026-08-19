@@ -1,15 +1,23 @@
-/* Event List */
-.all-events-section{
+#discover-header{
+    color: var(--color-blue);
+    font-family: 'Archivo Black';
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    margin: 0 0  0;
+    align-self: self-end;
+}
+
+discover-page_container{
  padding: 1rem 1.5rem 3px 0px;
 }
 
-.header-section p{
+.discover_header-section p{
   font-family: "Cascadia Mono", sans-serif;
   color: var(--color-text-muted);
   justify-self: center;
 }
 
-.header-section{
+.discover_header-section{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -33,8 +41,9 @@
   font-size: 0.8rem;
 }
 
-.event-grid {
+.discover_event-grid {
   display: grid;
+  width: 100%;
  
   /*grid-template-rows: repeat(3,minmax(0,1fr));*/
   /*grid-template-columns: repeat(2,minmax(0,1fr));*/

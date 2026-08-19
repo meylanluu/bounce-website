@@ -1,9 +1,71 @@
+import { useEffect, useState } from "react";
+import { getEvents } from "../data/eventsService";
+
+import EventCard from "../components/EventCard";
+import "./Discover.css"
+
 export default function Discover(){
+
+    const [events, setEvents] = useState([]);
+    const [city, setCity] = useState("");
+    const [type, setType] = useState("");
+    {/*useState = aktueller Wert + Funktion, Wert zu ändern*/}
+
+    useEffect(() => {getEvents().then(setEvents);},  []);
+    {/*useEffect: erlaubt das asynchrone Laden von Daten?*/}
+    {/*events-Array ist nun mit den vers. Events gefüllt*/}
+
+    {/* Städte und Eventtypes extrahieren und in eigenes Array packen*/}
+    const cities = [...new Set(events.map((e) => e.city))]; {/* [...new Set] = Spread-Operator -> wandelt Set wieder in normales Array um*/}
+    const types = [...new Set(events.map((e) => e.type))];
+
+    {/* Filtern: City & Type müssen beide übereinstimmen */}
+    const filteredEvents = events.filter((event) => {
+        const matchesCity = city ? event.city === city : true;
+        {/*Wenn city einen Wert hat -> Überprüfen ob event.city mit city-Filter übereinstimmt
+        Wenn city leer ist -> true zurück geben (alle Events)*/}
+        const matchesType = type ? event.type === type : true;
+        return matchesCity && matchesType;
+    });
+
+    console.log(cities)
+    console.log(types)
+
     return (
-        <>
-        <main>
-            <h1>Discover Page</h1>
-        </main>
-        </>
+        <div className="discover-page_container">
+            <h1 id="discover-header">DISCOVER</h1>
+              <div className="discover_header-section">
+                
+                <p>ALL EVENTS</p>
+                <div className="filters">
+                  <select value={city} onChange={(e) => setCity(e.target.value)}>
+                    <option value="">Alle Städte</option>
+                    {cities.map((c) => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+        
+                  <select value={type} onChange={(e) => setType(e.target.value)}>
+                    <option value="">Alle Eventtypen</option>
+                    {types.map((t) => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
+                </div>
+                
+              </div>
+        
+              {filteredEvents.length === 0 ? 
+              ( <p className="empty-state">Keine Events gefunden. Versuch andere Filter.</p>) 
+              : 
+              (<div className="discover_event-grid"> 
+                  {filteredEvents.map((event) => ( 
+                    <EventCard key={event.id} event={event} />  
+                  ))} {/*key => für React-Buchhaltung, jede EventCard kriegt key */}
+                      {/*event -> React Prop */}
+                </div>
+            )}
+        </div>
+
     );
 }
