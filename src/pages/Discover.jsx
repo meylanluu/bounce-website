@@ -39,14 +39,14 @@ export default function Discover(){
                 <p>ALL EVENTS</p>
                 <div className="filters">
                   <select value={city} onChange={(e) => setCity(e.target.value)}>
-                    <option value="">Alle Städte</option>
+                    <option value="">All Citites</option>
                     {cities.map((c) => (
                       <option key={c} value={c}>{c}</option>
                     ))}
                   </select>
         
                   <select value={type} onChange={(e) => setType(e.target.value)}>
-                    <option value="">Alle Eventtypen</option>
+                    <option value="">All Types</option>
                     {types.map((t) => (
                       <option key={t} value={t}>{t}</option>
                     ))}

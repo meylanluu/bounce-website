@@ -37,14 +37,14 @@ export default function EventList() {
         <p>ALL EVENTS</p>
         <div className="filters">
           <select value={city} onChange={(e) => setCity(e.target.value)}>
-            <option value="">Alle Städte</option>
+            <option value="">All Cities</option>
             {cities.map((c) => (
               <option key={c} value={c}>{c}</option>
             ))}
           </select>
 
           <select value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="">Alle Eventtypen</option>
+            <option value="">All Types</option>
             {types.map((t) => (
               <option key={t} value={t}>{t}</option>
             ))}
@@ -54,7 +54,7 @@ export default function EventList() {
       </div>
 
       {filteredEvents.length === 0 ? 
-      ( <p className="empty-state">Keine Events gefunden. Versuch andere Filter.</p>) 
+      ( <p className="empty-state">No events found. Try other filters.</p>) 
       : 
       (<div className="event-grid"> 
           {filteredEvents.map((event) => ( 

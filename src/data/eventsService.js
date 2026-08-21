@@ -2,21 +2,67 @@ import { supabase } from "./supabaseClient";
 
 export async function getEvents() {
   const {data, error} = await supabase.from('events').select();
+
+  if (error) throw error
+
   return data;
 }
 
 //für EventDetailPage
 export async function getEventById(id) {
-  const {data,error} = await supabase
+  if (id===null) {
+    throw new Error('Event ID is required.')
+  }
+
+  const {data, error} = await supabase
   .from('events')
   .select()
   .eq('event_id', id)
   .single(); // einzelnes Objekt soll geholt werden-> Event-Objekt
 
+  if (error) throw error
+
   return data //return = eventObjekt
 }
 
 export async function createEvent(userId, eventData){
+
+  if (!userId) {
+    throw new Error("Organizer ID is required.");
+  }
+
+  if (!eventData) {
+    throw new Error("Event data is required.");
+  }
+
+  if (!eventData.title || eventData.title.trim() === "") {
+    throw new Error("Title is required.");
+  }
+
+  if (!eventData.time) {
+    throw new Error("Time is required.");
+  }
+
+  if (!eventData.date) {
+    throw new Error("Date is required.");
+  }
+
+  if (!eventData.city || eventData.city.trim() === "") {
+    throw new Error("City is required.");
+  }
+
+  if (!eventData.location || eventData.city.trim() === "") {
+    throw new Error("Location is required.");
+  }
+
+  if (!eventData.image_url) {
+    throw new Error("Image is required.");
+  }
+
+  if (!eventData.type) {
+    throw new Error("Type is required.");
+  }
+
   const { data, error } = await supabase
       .from('events')
       .insert({ 
@@ -58,10 +104,22 @@ export async function updateEvent(eventId, newData){
 }
 
 //Filtern
-export async function filterEvents({ city, type }) {
-  const {data, error} = await supabase.from('events').select().eq('city', city).eq('type',type);
-  return data; 
+export async function filterEvents({ city, type }) { //übergebener Parameter: Objekt, aus dem obj.city und obj.type extrahiert werden 
+  const {data, error} = await supabase
+                        .from('events')
+                        .select()
+                        .eq('city', city)
+                        .eq('type',type);
+
+  if (data === null){
+    throw new Error ("No events found.");
+  }
+  
+  if (error) throw error
+  
+  return data; //array von events
   };
+
 
 // Event Image hochladen
 export async function uploadEventPicture(eventId,file){
@@ -85,15 +143,48 @@ export async function uploadEventPicture(eventId,file){
 
 //Slug
 export function createSlug(eventTitle) {
-  return eventTitle.trim().replace(/\W+/g," ").replace(/\s+/g,"-").toLowerCase();
+  if (!eventTitle) {
+    throw new Error("Title is required.");
+  };
+
+  if (eventTitle.trim() === "") {
+  throw new Error("Title cannot be empty or whitespaces only.");
+  }
+
+  const umlautMap = {
+    ä: "ae",
+    ö: "oe",
+    ü: "ue",
+    Ä: "Ae",
+    Ö: "Oe",
+    Ü: "Ue",
+    ß: "ss"
+  };
+
+  let slug = eventTitle  
+    .replace(/[äöüÄÖÜß]/g, m => umlautMap[m]) //[äöüÄÖÜß] -> matcht genau eines der zeichen darin
+    .trim()
+    .replace(/\W+/g," ")
+    .replace(/\s+/g,"-")
+    .replace(/-$/, "") // $ -> nur am Ende des Strings
+    .toLowerCase();
+
+    return slug; 
 }
 
 export async function getEventBySlug(slug){
+
+  if (!slug) {
+    throw new Error("Slug is required.");
+  };
+
   const {data,error} = await supabase
   .from('events')
   .select()
   .eq('slug', slug)
   .single();
 
+  if (error) throw error
+  
   return data
 }
