@@ -33,6 +33,7 @@ align-self: flex-end;
 .home-main {
 display: flex; 
 flex-direction: row;
+justify-content: space-between;
 }
 
 #my-events_header{
@@ -45,5 +46,6 @@ flex-direction: row;
 .event-list_container{
     width: 700px;
 }
+
 
 

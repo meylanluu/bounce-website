@@ -101,12 +101,11 @@ export default function EditEvent(){
             };
 
             let currentEvent = event; // lokale Variable nötig || setEvent() asynchron, kann event nicht innerhalb Funktion updaten
-            console.log('currentEvent: ', currentEvent.title);
             let currentSlug;
 
             // EVENT WIRD NUR GEUPDATET
             if(eventId){
-                currentSlug = createSlug(currentEvent.title);
+                currentSlug = createSlug(eventData.title);
                 await updateEvent(eventId, { ...eventData, slug: currentSlug });
                 currentEvent = { event_id: eventId, slug: currentSlug}; //für navigate später
                 console.log('currentSlug: ', currentSlug);
@@ -174,7 +173,6 @@ export default function EditEvent(){
                                 type = "date" 
                                 aria-label="Event date"
                                 className='medium_input'
-                                value={eventId && event ? event.date : placeholderDate}
                                 onChange = {(e) => setDate(e.target.value)}
                                 />
                         </div>
@@ -186,7 +184,7 @@ export default function EditEvent(){
                                     type = "time" 
                                     aria-label="Event time"
                                     className='medium_input'
-                                    value={eventId && event ? event.time : placeholderTime}
+                                  
                                     onChange = {(e) => setTime(e.target.value)}
                                     />
                             </div>

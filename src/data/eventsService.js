@@ -55,10 +55,6 @@ export async function createEvent(userId, eventData){
     throw new Error("Location is required.");
   }
 
-  if (!eventData.image_url) {
-    throw new Error("Image is required.");
-  }
-
   if (!eventData.type) {
     throw new Error("Type is required.");
   }
